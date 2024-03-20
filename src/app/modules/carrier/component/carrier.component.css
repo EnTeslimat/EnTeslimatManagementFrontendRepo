@@ -1,0 +1,15 @@
+.local-shipping{
+    color: rgb(255, 123, 0);
+}
+
+.add{
+    color: green;
+}
+
+.delete{
+    color: red;
+}
+
+.carrier-full-name{
+    font-weight: normal;
+}

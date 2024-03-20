@@ -1,1 +1,69 @@
-<app-routes-container><p>carrier works!</p></app-routes-container>
+<app-routes-container>
+  <mat-card style="width: 100%">
+    <mat-card-header>
+      <div class="header-container">
+        <h2 style="margin-right: 1.25rem">Taşıyıcılar</h2>
+        <div class="addSearchHolder">
+          <button
+            matTooltip="Yeni Kurye Ekle"
+            style="margin: 0 1.5rem"
+            aria-label="Kurye Ekle"
+            (click)="openCarrierAddDialog()"
+          >
+            <mat-icon class="addBtn">control_point</mat-icon>
+          </button>
+          <mat-form-field appearance="fill">
+            <mat-icon matPrefix>search</mat-icon>
+            <input
+              matInput
+              placeholder="Taşıyıcıları Ara"
+              [formControl]="searchInputControl"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 transparent-table">
+       
+        <ng-container matColumnDef="carrierUniqueCode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Taşıyıcı Benzersiz Kodu</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.carrierUniqueCode }}</td>
+        </ng-container>
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>İsim Soyisim</th>
+          <td mat-cell *matCellDef="let carrier" class="carrier-full-name">{{ carrier.firstName + ' ' + carrier.middleName + ' ' + carrier.lastName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.email }}</td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.phone }}</td>
+        </ng-container>
+        <ng-container matColumnDef="operations">
+          <th mat-header-cell *matHeaderCellDef> Operasyonlar </th>
+          <td mat-cell *matCellDef="let carrier">
+            <button mat-icon-button matTooltip="Taşıyıcıyı Araçlarını Gör">
+              <mat-icon class="local-shipping">local_shipping</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Taşıyıcıya Araç Ekle">
+              <mat-icon class="add">add</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Taşıyıcıyı Sil">
+              <mat-icon class="delete">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-paginator [pageSizeOptions]="[25, 50, 75, 100]" showFirstLastButtons></mat-paginator>
+    </mat-card-footer>
+  </mat-card>
+</app-routes-container>
