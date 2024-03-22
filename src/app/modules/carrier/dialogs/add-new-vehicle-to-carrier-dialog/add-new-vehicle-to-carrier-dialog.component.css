@@ -1,0 +1,11 @@
+.vehicle-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Aralarda 8px boşluk */
+  }
+  
+  /* İsteğe bağlı olarak mat-form-field elemanlarınızı boyutlandırabilirsiniz */
+  .vehicle-form .mat-form-field {
+    width: 100%; /* Tüm form alanlarını genişlet */
+  }
+  
