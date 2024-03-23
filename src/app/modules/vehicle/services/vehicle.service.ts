@@ -6,6 +6,7 @@ import { GetAllVehiclesResponseDto } from '../models/get-all-vehicles-response-d
 import { Observable } from 'rxjs';
 import { ResponseModel } from 'src/app/generic-models/response-model';
 import { CreateVehicleRequestDto } from '../../carrier/models/create-vehicle-request-dto';
+import { CarrierVehiclesResponseDto } from '../models/carrier-vehicles-response-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,10 @@ export class VehicleService {
   addVehicleToCarrier(createVehicleRequestDto:CreateVehicleRequestDto):Observable<ResponseModel>{
     let newUrl = this.apiUrl + '/addVehicleToCarrier';
     return this.httpClient.post<ResponseModel>(newUrl,createVehicleRequestDto);
+  }
+
+  getAllCarrierVehiclesByCarrierId(carrierId:number):Observable<ListResponseModel<CarrierVehiclesResponseDto>>{
+    let newUrl = this.apiUrl + '/getAllCarriersVehicleByCarrierId';
+    return this.httpClient.get<ListResponseModel<CarrierVehiclesResponseDto>>(newUrl,{params:{carrierId: carrierId}});
   }
 }

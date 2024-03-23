@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Silme Onayı</h2>
+<mat-dialog-content class="mat-typography">
+  <p>{{ message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onConfirm()">Evet</button>
+  <button mat-button (click)="onDismiss()" mat-dialog-close>Hayır</button>
+</mat-dialog-actions>

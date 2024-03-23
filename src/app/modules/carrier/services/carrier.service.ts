@@ -24,4 +24,10 @@ export class CarrierService {
     let newApiUrl=this.apiUrl +"createCarrier";
     return this.httpClient.post<ResponseModel>(newApiUrl,createCarrierRequestDto);
   }
+
+  deleteCarrierById(id:number,deletedById:number):Observable<ResponseModel>{
+    let newApiUrl=this.apiUrl+"deleteLocallyById";
+    return this.httpClient.delete<ResponseModel>(newApiUrl,{params:{id:id,deletedById:deletedById}});
+  }
+  
 }
