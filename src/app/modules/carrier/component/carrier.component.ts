@@ -69,9 +69,9 @@ export class CarrierComponent implements OnInit {
   }
 
   showVehicleDetails() {
-    // TODO: Implement functionality to show vehicle details for a carrier
-  }
 
+  }
+  
   openCarrierAddDialog() {
     const dialogRef = this.dialog.open(AddCarrierDialogComponent, {
       width: '600px',

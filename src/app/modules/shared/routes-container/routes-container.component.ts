@@ -75,8 +75,7 @@ export class RoutesContainerComponent {
     {
       header: 'Teslimat İşlemleri',
       routes: [
-        { label: 'Gönderimler', route: '/deliveries' },
-        { label: 'İadeler', route: '/returns' },
+        { label: 'Tüm Teslimat İşlemleri', route: '/delivery' },
       ],
       active: false,
     },
