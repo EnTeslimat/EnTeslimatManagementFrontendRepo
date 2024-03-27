@@ -1,6 +1,6 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { DataSource } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Sort } from '@angular/material/sort';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs';
@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DeliveryService } from '../services/delivery.service';
 import { GetAllDeliveriesForManagementResponseDto } from '../models/get-all-deliveries-for-management-response-dto';
 import { ToastrService } from 'ngx-toastr';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-delivery',
@@ -17,14 +18,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DeliveryComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+    this.getAllDeliveriesForManagement();
+    this.setupFilter();
+    
+    }
+  displayedColumns: string[] = ['receiverFullName','sellerBatchBarcode','packageBarcode','collectorCarrierName', 'distributorCarrierName', 'createdTime','cityName','districtName','neighbourhoodName','fullAddress',];
 
   listOfGetAllDeliveriesForManagemenResponseDto:GetAllDeliveriesForManagementResponseDto[]=[]
-  dataSource!: MatTableDataSource<GetAllSellerResponseDto>;
+  dataSource = new MatTableDataSource<GetAllDeliveriesForManagementResponseDto>();
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   searchInputControl: FormControl = new FormControl('');
   private _liveAnnouncer!: LiveAnnouncer;
+  isExpansionDetailRow = (index: number, row: Object) => row.hasOwnProperty('detailRow');
 
   constructor(private deliveryService:DeliveryService,private toastrService:ToastrService){
 
@@ -54,17 +60,16 @@ export class DeliveryComponent implements OnInit {
     }
   }
 
-  getAllDeliveriesForManagement(){
-    this.deliveryService.getAllDeliveriesForManagement().subscribe(
-      {
-        next: (response)=>{
-          this.listOfGetAllDeliveriesForManagemenResponseDto = response.data
-        },
-        error:(error)=>{
-          this.toastrService.error(error.error)
-        }
-
+  getAllDeliveriesForManagement() {
+    this.deliveryService.getAllDeliveriesForManagement().subscribe({
+      next: (response) => {
+        this.dataSource.data = response.data;
+        console.log(this.dataSource);
+        this.dataSource.paginator = this.paginator;
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
       }
-    )
+    });
   }
 }

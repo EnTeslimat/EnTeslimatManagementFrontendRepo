@@ -16,7 +16,7 @@ export class DeliveryService {
   constructor(private httpClient:HttpClient) { }
 
   getAllDeliveriesForManagement():Observable<ListResponseModel<GetAllDeliveriesForManagementResponseDto>>{
-    let newUrl = this.apiUrl + 'getAllgetAllDeliveriesForManagement';
+    let newUrl = this.apiUrl + 'getAllDeliveriesForManagement';
     return this.httpClient.get<ListResponseModel<GetAllDeliveriesForManagementResponseDto>>(newUrl);
   }
 }
