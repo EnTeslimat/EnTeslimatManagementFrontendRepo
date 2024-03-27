@@ -6,6 +6,7 @@ import { ListResponseModel } from 'src/app/generic-models/list-response-model';
 import { GetAllCarrierDto } from '../models/get-all-carrier-dto';
 import { ResponseModel } from 'src/app/generic-models/response-model';
 import { CreateCarrierRequestDto } from '../models/create-carrier-request-dto';
+import { DefineResponsibleRegionToCarrierRequestDto } from '../models/define-responsible-region-to-carrier-request-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class CarrierService {
   deleteCarrierById(id:number,deletedById:number):Observable<ResponseModel>{
     let newApiUrl=this.apiUrl+"deleteLocallyById";
     return this.httpClient.delete<ResponseModel>(newApiUrl,{params:{id:id,deletedById:deletedById}});
+  }
+
+  defineResponsibleRegionToCarrier(defineResponsibleRegionToCarrierRequestDto:DefineResponsibleRegionToCarrierRequestDto):Observable<ResponseModel>{
+    let newApiUrl=this.apiUrl+"defineResponsibleRegionToCarrier";
+    return this.httpClient.put<ResponseModel>(newApiUrl,defineResponsibleRegionToCarrierRequestDto);
   }
   
 }

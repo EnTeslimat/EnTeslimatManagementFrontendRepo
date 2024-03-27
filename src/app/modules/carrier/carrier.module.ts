@@ -30,9 +30,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedRoutingModule } from '../shared/shared-routing.module';
+import { DefineCarrierResponsibleRegionDialogComponent } from './dialogs/define-carrier-responsible-region-dialog/define-carrier-responsible-region-dialog.component';
 
 @NgModule({
-  declarations: [CarrierComponent,AddCarrierDialogComponent, AddNewVehicleToCarrierDialogComponent, ShowCarrierVehiclesDialogComponent],
+  declarations: [CarrierComponent,AddCarrierDialogComponent, AddNewVehicleToCarrierDialogComponent, ShowCarrierVehiclesDialogComponent, DefineCarrierResponsibleRegionDialogComponent],
   imports: [  
     CommonModule,
     CarrierRoutingModule,

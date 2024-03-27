@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Taşıyıcının Sorumlu Bölgesini Ayarla</h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="defineCarrierResponsibleRegionForm" class="vehicle-form" (ngSubmit)="defineCarrierResponsibleRegion()">
+            <mat-form-field appearance="fill">
+                <mat-label>Şehir</mat-label>
+                <mat-select formControlName="city">
+                  <mat-option *ngFor="let city of cities" [value]="city.cityKey">
+                    {{ city.cityName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>İlçe</mat-label>
+                <mat-select formControlName="district">
+                  <mat-option *ngFor="let district of districts" [value]="district.districtKey">
+                    {{ district.districtName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Mahalle</mat-label>
+                <mat-select formControlName="neighbourhood">
+                  <mat-option *ngFor="let neighbourhood of neighbourhoods" [value]="neighbourhood.neighbourhoodKey">
+                    {{ neighbourhood.neighbourhoodName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-dialog-actions align="end">
+              <button mat-button [mat-dialog-close]="false">İptal</button>
+              <button mat-button type="submit" [disabled]="defineCarrierResponsibleRegionForm.invalid">Ekle</button>
+            </mat-dialog-actions>
+      </form>
+</mat-dialog-content>

@@ -9,5 +9,8 @@ export interface GetAllCarrierDto {
     carrierUniqueCode:string;
     email:string;
     phone:string;
-    entityStatus:EntityStatuses
+    entityStatus:EntityStatuses;
+    responsibleCityName:string;
+    responsibleDistrictName:string;
+    responsibleNeighbourhoodName:string;
 }

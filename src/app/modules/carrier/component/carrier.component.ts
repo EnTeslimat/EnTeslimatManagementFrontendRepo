@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { GetAllCarrierDto } from '../models/get-all-carrier-dto';
 import { CarrierService } from '../services/carrier.service';
@@ -16,6 +16,7 @@ import { UserService } from '../../user/services/user.service';
 import { GetUserByRefreshTokenResponseDtoModel } from '../../user/models/response/get-user-by-refresh-token-response-dto-model';
 import { ConfirmationDialogComponent } from '../../shared/components/Dialogs/confirmation-dialog/confirmation-dialog.component';
 import { NewConfirmationDialogComponent } from '../../shared/components/Dialogs/new-confirmation-dialog/new-confirmation-dialog.component';
+import { DefineCarrierResponsibleRegionDialogComponent } from '../dialogs/define-carrier-responsible-region-dialog/define-carrier-responsible-region-dialog.component';
 
 @Component({
   selector: 'app-carrier',
@@ -25,11 +26,11 @@ import { NewConfirmationDialogComponent } from '../../shared/components/Dialogs/
 export class CarrierComponent implements OnInit {
   searchInputControl: FormControl = new FormControl('');
   dataSource = new MatTableDataSource<GetAllCarrierDto>();
-  displayedColumns: string[] = ['carrierUniqueCode', 'fullName', 'email', 'phone', 'operations'];
+  displayedColumns: string[] = ['carrierUniqueCode', 'fullName', 'email', 'phone', 'responsibleCityName','responsibleDistrictName','responsibleNeighbourhoodName','operations'];
   getUserFromAuthByDtoModel!:GetUserByRefreshTokenResponseDtoModel;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+  dialogRef!:MatDialogRef<CarrierComponent>;
   constructor(private carrierService: CarrierService, public dialog: MatDialog,private toastrService:ToastrService,private userService:UserService) {}
 
   ngOnInit(): void {
@@ -101,6 +102,15 @@ export class CarrierComponent implements OnInit {
       width: '600px',
       data: { carrierId: carrierId } // Dialog'a carrierId'yi gönder
     });
+  }
+
+  openDefineCarrierResponsibleRegionDialog(carrierId:number){
+    this.dialog.open(DefineCarrierResponsibleRegionDialogComponent,{
+      width:"600px",
+      data:{
+        carrierId:carrierId,
+      }
+    })
   }
 
   deleteCarrierById(id: number) {
