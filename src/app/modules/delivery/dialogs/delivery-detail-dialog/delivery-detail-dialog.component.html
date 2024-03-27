@@ -1,0 +1,62 @@
+<h3 mat-dialog-title>Teslimat Detayları</h3>
+
+<mat-dialog-content class="dialog-content">
+  <div class="detail-item">
+    <span class="detail-label">Toplama Kurye İsim-Soyisim:</span>
+    <span class="detail-value">{{data.collectorCarrierName}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Dağıtım Kurye İsim-Soyisim:</span>
+    <span class="detail-value">{{data.distributorCarrierName}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslimat Şehri:</span>
+    <span class="detail-value">{{data.cityName}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslimat İlçesi:</span>
+    <span class="detail-value">{{data.districtName}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslimat Mahallesi:</span>
+    <span class="detail-value">{{data.neighbourhoodName}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslimat Tam Adres:</span>
+    <span class="detail-value">{{data.fullAddress}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Oluşturulma Zamanı:</span>
+    <span class="detail-value">{{data.createdTime | date:'medium'}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslim Edilme Zamanı:</span>
+    <span class="detail-value">{{data.deliveredDate | date:'medium'}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Desi:</span>
+    <span class="detail-value">{{data.desi}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Teslimat Tipi:</span>
+    <span class="detail-value">{{data.deliveryType | deliveryType}}</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Paket Tipi:</span>
+    <span class="detail-value">{{data.deliveryPackageType | deliveryPackageType}}</span>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Kapat</button>
+</mat-dialog-actions>

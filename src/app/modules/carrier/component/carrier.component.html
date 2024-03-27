@@ -42,6 +42,18 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
           <td mat-cell *matCellDef="let carrier">{{ carrier.phone }}</td>
         </ng-container>
+        <ng-container matColumnDef="responsibleCityName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sorumlu Şehir</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.responsibleCityName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="responsibleDistrictName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sorumlu İlçe</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.responsibleDistrictName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="responsibleNeighbourhoodName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sorumlu Mahalle</th>
+          <td mat-cell *matCellDef="let carrier">{{ carrier.responsibleNeighbourhoodName }}</td>
+        </ng-container>
         <ng-container matColumnDef="operations">
           <th mat-header-cell *matHeaderCellDef> Operasyonlar </th>
           <td mat-cell *matCellDef="let carrier">
@@ -53,6 +65,9 @@
             </button>
             <button mat-icon-button matTooltip="Taşıyıcıyı Sil" (click)="deleteCarrierById(carrier.id)">
               <mat-icon class="delete">delete</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Sorumlu Bölge Ayarla" (click)="openDefineCarrierResponsibleRegionDialog(carrier.id)">
+              <mat-icon class="add">public</mat-icon>
             </button>
           </td>
         </ng-container>

@@ -16,7 +16,7 @@ import { VehicleTypeEnum } from '../enums/vehicle-type-enum';
 export class VehicleComponent implements OnInit {
   searchInputControl: FormControl = new FormControl('');
   dataSource = new MatTableDataSource<GetAllVehiclesResponseDto>();
-  displayedColumns: string[] = ['carrierFullName', 'brandName', 'modelName', 'vehicleType', 'vehicleStatus'];
+  displayedColumns: string[] = ['carrierFullName', 'brandName', 'modelName','identityPlateNumber' ,'vehicleType', 'vehicleStatus'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -67,7 +67,7 @@ export class VehicleComponent implements OnInit {
   getVehicleTypeText(type: VehicleTypeEnum): string {
     switch (type) {
       case VehicleTypeEnum.CargoVan:
-        return 'Kargo Vanı';
+        return 'Kargo Van';
       case VehicleTypeEnum.CargoTruck:
         return 'Kargo Kamyonu';
       default:

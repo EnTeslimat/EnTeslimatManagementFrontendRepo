@@ -13,5 +13,6 @@ export interface GetAllVehiclesResponseDto {
     motorChassisNumber:string,
     lastMaintenanceDate?:Date,
     vehicleType:VehicleTypeEnum,
-    vehicleStatus:VehicleStatus
+    vehicleStatus:VehicleStatus,
+    identityPlateNumber:string
 }

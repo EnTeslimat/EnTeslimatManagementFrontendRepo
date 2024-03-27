@@ -1,0 +1,23 @@
+.mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-form-field {
+    margin-bottom: 20px; /* Her form alanı arasında boşluk sağlar */
+}
+
+.vehicle-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Butonlar ve form alanları arasında boşluk sağlar */
+}
+
+button {
+    margin-left: 10px; /* Butonlar arasında boşluk sağlar */
+}

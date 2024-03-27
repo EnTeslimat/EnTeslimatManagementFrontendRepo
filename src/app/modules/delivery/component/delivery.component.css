@@ -1,0 +1,122 @@
+.assigned {
+    color: #006064;
+  }
+  
+  .delivered {
+    color: #1b5e20;
+  }
+  
+  .cancelled {
+    color: #c62828;
+  }
+  
+  .in-distribution {
+    color: #f57f17;
+  }
+  
+  .in-warehouse {
+    color: #01579b;
+  }
+  
+  .ready-to-collection {
+    color: #827717;
+  }
+  
+  .unknown {
+    color: #455a64;
+  }
+  
+  .app-routes-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .mat-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .addSearchHolder {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .mat-header-cell {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .mat-row, .mat-header-row {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .mat-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .mat-paginator {
+    background: transparent;
+    padding-top: 10px;
+  }
+  
+  .mat-icon {
+    color: rgba(0,0,0,0.54);
+  }
+  
+  button.mat-button {
+    margin: 0;
+    padding: 0;
+    min-width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Durum renkleri için genel stiller */
+  .status-assigned,
+  .status-delivered,
+  .status-cancelled,
+  .status-in-distribution,
+  .status-in-warehouse,
+  .status-ready-to-collection,
+  .status-unknown {
+    padding: 4px 8px;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .status-assigned { background-color: #007bff; }
+  .status-delivered { background-color: #28a745; }
+  .status-cancelled { background-color: #dc3545; }
+  .status-in-distribution { background-color: #ffc107; color: black; }
+  .status-in-warehouse { background-color: #fd7e14; }
+  .status-ready-to-collection { background-color: #6f42c1; }
+  .status-unknown { background-color: #6c757d; }
+  

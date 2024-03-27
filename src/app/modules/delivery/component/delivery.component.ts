@@ -10,6 +10,9 @@ import { DeliveryService } from '../services/delivery.service';
 import { GetAllDeliveriesForManagementResponseDto } from '../models/get-all-deliveries-for-management-response-dto';
 import { ToastrService } from 'ngx-toastr';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DeliveryDetailDialogComponent } from '../dialogs/delivery-detail-dialog/delivery-detail-dialog.component';
+import { DeliveryStatusEnum } from '../../package/models/enums/delivery-status-enum';
 
 @Component({
   selector: 'app-delivery',
@@ -22,7 +25,7 @@ export class DeliveryComponent implements OnInit {
     this.setupFilter();
     
     }
-  displayedColumns: string[] = ['receiverFullName','sellerBatchBarcode','packageBarcode','collectorCarrierName', 'distributorCarrierName', 'createdTime','cityName','districtName','neighbourhoodName','fullAddress',];
+  displayedColumns: string[] = ['receiverFullName','sellerBatchBarcode','packageBarcode','cityName','deliveryStatus','details'];
 
   listOfGetAllDeliveriesForManagemenResponseDto:GetAllDeliveriesForManagementResponseDto[]=[]
   dataSource = new MatTableDataSource<GetAllDeliveriesForManagementResponseDto>();
@@ -32,7 +35,7 @@ export class DeliveryComponent implements OnInit {
   private _liveAnnouncer!: LiveAnnouncer;
   isExpansionDetailRow = (index: number, row: Object) => row.hasOwnProperty('detailRow');
 
-  constructor(private deliveryService:DeliveryService,private toastrService:ToastrService){
+  constructor(private deliveryService:DeliveryService,private toastrService:ToastrService,private dialog:MatDialog){
 
   }
   setupFilter(): void {
@@ -72,4 +75,31 @@ export class DeliveryComponent implements OnInit {
       }
     });
   }
+
+  openDetailsDialog(element: any): void {
+    this.dialog.open(DeliveryDetailDialogComponent, {
+      width: '600px',
+      data: element
+    });
+  }
+
+  getDeliveryStatusClass(status: DeliveryStatusEnum): string {
+  switch (status) {
+    case DeliveryStatusEnum.AssignedToCarrier:
+      return 'assigned';
+    case DeliveryStatusEnum.DeliveredToCustomer:
+      return 'delivered';
+    case DeliveryStatusEnum.Cancelled:
+      return 'cancelled';
+    case DeliveryStatusEnum.InDistribution:
+      return 'in-distribution';
+    case DeliveryStatusEnum.InWareHouse:
+      return 'in-warehouse';
+    case DeliveryStatusEnum.ReadyToCollection:
+      return 'ready-to-collection';
+    default:
+      return 'unknown';
+  }
+}
+
 }

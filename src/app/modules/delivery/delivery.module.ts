@@ -27,9 +27,10 @@ import { CustomerRoutingModule } from '../customer/customer-routing.module';
 import { DeliveryStatusPipe } from './pipes/delivery-status.pipe';
 import { DeliveryTypePipe } from './pipes/delivery-type.pipe';
 import { DeliveryPackageTypePipe } from './pipes/delivery-package-type.pipe';
+import { DeliveryDetailDialogComponent } from './dialogs/delivery-detail-dialog/delivery-detail-dialog.component';
 
 @NgModule({
-  declarations: [DeliveryComponent, DeliveryStatusPipe, DeliveryTypePipe, DeliveryPackageTypePipe],
+  declarations: [DeliveryComponent, DeliveryStatusPipe, DeliveryTypePipe, DeliveryPackageTypePipe, DeliveryDetailDialogComponent],
   imports: [CommonModule,
     CommonModule,
     DeliveryRoutingModule,
