@@ -24,9 +24,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { CustomerRoutingModule } from '../customer/customer-routing.module';
+import { DeliveryStatusPipe } from './pipes/delivery-status.pipe';
+import { DeliveryTypePipe } from './pipes/delivery-type.pipe';
+import { DeliveryPackageTypePipe } from './pipes/delivery-package-type.pipe';
 
 @NgModule({
-  declarations: [DeliveryComponent],
+  declarations: [DeliveryComponent, DeliveryStatusPipe, DeliveryTypePipe, DeliveryPackageTypePipe],
   imports: [CommonModule,
     CommonModule,
     DeliveryRoutingModule,

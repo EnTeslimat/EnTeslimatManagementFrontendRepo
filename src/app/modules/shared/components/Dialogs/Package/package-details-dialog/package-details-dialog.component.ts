@@ -60,10 +60,10 @@ export class PackageDetailsDialogComponent implements OnInit {
     switch (status) {
       case DeliveryTypeEnum.Standart:
         return 'Standart';
-      case DeliveryTypeEnum.Urgent:
-        return 'Acil';
-      case DeliveryTypeEnum.Heavy:
-        return 'Ağır';
+      case DeliveryTypeEnum.Express:
+        return 'Ekspres';
+      case DeliveryTypeEnum.Premium:
+        return 'Premium';
       default:
         return 'Bilinmeyen Durum';
     }

@@ -1,5 +1,5 @@
 export enum DeliveryTypeEnum {
   Standart,
-  Urgent,
-  Heavy,
+  Express,
+  Premium
 }
