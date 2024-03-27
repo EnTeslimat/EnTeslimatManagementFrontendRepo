@@ -1,0 +1,39 @@
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh; /* İçeriğin çok uzun olması durumunda kaydırma çubuğu eklenecek */
+    overflow-y: auto; /* İçeriğin yüksekliği maksimuma ulaştığında kaydırmayı etkinleştir */
+  }
+  
+  .detail-item {
+    margin-bottom: 16px; /* Detaylar arasındaki boşluğu ayarlar */
+  }
+  
+  .detail-label {
+    font-weight: bold; /* Etiketleri vurgular */
+    display: inline-block; /* Etiketi ve değeri aynı satırda tutar */
+    min-width: 150px; /* Tüm etiketlerin genişliğini eşitler */
+  }
+  
+  .detail-value {
+    display: inline; /* Değeri etiketin yanında tutar */
+    color: #555; /* Değerler için renk */
+  }
+  
+  mat-dialog-actions {
+    justify-content: flex-end; /* Butonları sağa hizalar */
+    padding: 12px 24px; /* Alt kısmın padding'ini ayarlar */
+  }
+  
+  button[mat-dialog-close] {
+    font-size: 14px;
+    color: #0056b3; /* Buton rengi */
+    transition: color 0.3s ease; /* Renk değişim animasyonu */
+  }
+  
+  button[mat-dialog-close]:hover
+  {
+    color: #00376b; /* Butonun üzerine gelindiğinde rengi koyulaştır */
+    text-decoration: underline; /* Üzerine gelindiğinde altını çiz */
+  }
+    
